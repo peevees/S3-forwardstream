@@ -67,6 +67,7 @@ StyleCopReport.xml
 # Files built by Visual Studio
 *_i.c
 *_p.c
+*_i.h
 *_h.h
 *.ilk
 *.meta
@@ -90,6 +91,7 @@ StyleCopReport.xml
 *.vssscc
 .builds
 *.pidb
+*.log
 *.svclog
 *.scc
 
@@ -171,6 +173,7 @@ publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
+*.pubxml
 *.azurePubxml
 # Note: Comment the next line if you want to checkin your web deploy settings,
 # but database connection strings (with potential passwords) will be unencrypted
@@ -181,6 +184,11 @@ publish/
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
 PublishScripts/
+# NuGet Packages Directory
+## TODO: If you have NuGet Package Restore enabled, uncomment the next line
+packages/
+## TODO: If the tool you use requires repositories.config, also uncomment the next line
+!packages/repositories.config
 
 # NuGet Packages
 *.nupkg
@@ -220,7 +228,11 @@ _pkginfo.txt
 !?*.[Cc]ache/
 
 # Others
+sql/
+*.Cache
 ClientBin/
+[Ss]tyle[Cc]op.*
+![Ss]tyle[Cc]op.targets
 ~$*
 *~
 *.dbmdl
@@ -333,18 +345,31 @@ ASALocalRun/
 
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
+# Folder config file
+Desktop.ini
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
 
 # Local History for Visual Studio
 .localhistory/
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
+# Mac desktop service store files
+.DS_Store
 # BeatPulse healthcheck temp database
 healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+_NCrunch*
 
+.vs/
+.vscode/
+.history/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/

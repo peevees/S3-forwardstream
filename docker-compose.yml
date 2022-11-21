@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  s3-forwardstream:
+    image: ${DOCKER_REGISTRY-}s3forwardstream
+    build:
+      context: .
+      dockerfile: S3-ForwardStream/Dockerfile
+  minio:
+    image: "minio/minio:RELEASE.2019-03-06T22-47-10Z"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_SECRET_KEY=minio123
+      - MINIO_REGION=us-east-1
+      - MINIO_SERVER_URL=http://s3.minio:9000/
+
+    entrypoint: sh
+    command: -c 'mkdir -p /data/docs && /usr/bin/minio server /data'
